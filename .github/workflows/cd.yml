@@ -30,6 +30,31 @@ jobs:
         # If there is no `cache-hit`, we install the dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci
+  build:
+    name: Build
+    strategy:
+      matrix:
+        node-version: [22.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    needs: [install-cache, lint, tests] # If previous jobs succeed, then run this build.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Restore cached dependencies
+        uses: actions/cache@v4
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: Build (Vite)
+        run: npm run build
   release:
     name: Release
     strategy:
@@ -45,8 +70,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      # Restore the npm dependencies from the actions/cache.
-      # At this stage of the workflow the dependencies have been installed and cached.
       - name: Restore cached dependencies
         uses: actions/cache@v4
         id: cache-dependencies
