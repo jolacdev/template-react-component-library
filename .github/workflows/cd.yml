@@ -1,0 +1,62 @@
+name: Continuous Deployment (CD)
+on:
+  push:
+    branches:
+      - main
+      - github-actions
+jobs:
+  install-cache:
+    name: Install-Cache
+    strategy:
+      matrix:
+        node-version: [22.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4 # If no branch is specified, the branch that triggered the workflow will be checked out.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+      - name: Install Dependencies
+        # If there is a `cache-hit`, dependencies are already installed and this step is skipped.
+        # If there is no `cache-hit`, we install the dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: npm ci
+  release:
+    name: Release
+    strategy:
+      matrix:
+        node-version: [22.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    needs: install-cache
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      # Restore the npm dependencies from the actions/cache.
+      # At this stage of the workflow the dependencies have been installed and cached.
+      - name: Restore cached dependencies
+        uses: actions/cache@v4
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
