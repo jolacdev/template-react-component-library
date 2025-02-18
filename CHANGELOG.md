@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/jolacdev/template-react-component-library/compare/v1.0.0...v1.0.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* :construction_worker: Update package scope and visibility ([fb9552a](https://github.com/jolacdev/template-react-component-library/commit/fb9552ab61af6f46974f4cd9678d0c69cbd72ce0))
+
 # 1.0.0 (2025-02-18)
 
 
