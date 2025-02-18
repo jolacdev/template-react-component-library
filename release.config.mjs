@@ -7,7 +7,7 @@ export default {
     '@semantic-release/commit-analyzer', // Included in semantic-release.
     '@semantic-release/release-notes-generator', // Included in semantic-release.
     ['@semantic-release/changelog', { changelogFile: 'CHANGELOG.md' }],
-    '@semantic-release/npm', // Included in semantic-release.
+    ['@semantic-release/npm', { pkgRoot: './dist' }], // Included in semantic-release.
     '@semantic-release/github', // Included in semantic-release.
     [
       '@semantic-release/git',
