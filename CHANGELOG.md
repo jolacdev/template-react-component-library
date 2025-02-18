@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/jolacdev/template-react-component-library/compare/v1.0.1...v1.0.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* :construction_worker: Add build run to CD workflow ([281594b](https://github.com/jolacdev/template-react-component-library/commit/281594b03413973cac20316a70f29fdd5b40cd83))
+* :construction_worker: Remove non-existing dependencies ([ede5f72](https://github.com/jolacdev/template-react-component-library/commit/ede5f72b1132aa0568c4e7bb332497a127556696))
+* :construction_worker: Update dependencies ([7505000](https://github.com/jolacdev/template-react-component-library/commit/75050008ec3ca593534caff2ab0d035cd81ac9a4))
+
 ## [1.0.1](https://github.com/jolacdev/template-react-component-library/compare/v1.0.0...v1.0.1) (2025-02-18)
 
 
