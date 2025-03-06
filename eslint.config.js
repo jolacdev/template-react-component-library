@@ -40,7 +40,7 @@ export default [
   ...tseslint.configs.recommended,
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'], // Disables some React recommended rules like `react-in-jsx-scope` not needed in React 17+.
-  reactHooks.configs['recommended-latest'], // TODO: Update to 5.2.0 release // NOTE: Planned to change to from 'recommended-latest' to 'recommended' in 6.0.0.
+  reactHooks.configs['recommended-latest'], // NOTE: Planned to change to from 'recommended-latest' to 'recommended' in 6.0.0.
   jsxA11y.flatConfigs.recommended,
   ...storybook.configs['flat/recommended'],
   prettierRecommended,

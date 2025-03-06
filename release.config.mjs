@@ -18,6 +18,7 @@ export default {
         releaseRules: [
           { release: 'patch', scope: 'README', type: 'docs' },
           { release: 'patch', type: 'refactor' },
+          { release: 'patch', scope: 'DEPS', type: 'chore' },
         ],
       },
     ],

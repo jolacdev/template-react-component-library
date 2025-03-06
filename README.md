@@ -253,7 +253,7 @@ export default [
   ...tseslint.configs.recommended,
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'], // Disables some React recommended rules like `react-in-jsx-scope` not needed in React 17+.
-  reactHooks.configs['recommended-latest'], // TODO: Update to 5.2.0 release // NOTE: Planned to change to from 'recommended-latest' to 'recommended' in 6.0.0.
+  reactHooks.configs['recommended-latest'], // NOTE: Planned to change to from 'recommended-latest' to 'recommended' in 6.0.0.
   jsxA11y.flatConfigs.recommended,
   ...storybook.configs['flat/recommended'],
   prettierRecommended,
@@ -638,53 +638,57 @@ The dependencies used are separated into:
   // Dependencies required for developing this package.
   "devDependencies": {
     // Prettier
-    "prettier": "3.4.2",
+    "prettier": "3.5.3",
 
     // ESLint related
-    "eslint": "9.20.0",
-    "eslint-config-prettier": "10.0.1",
+    "eslint": "9.21.0",
+    "eslint-config-prettier": "10.0.2",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-perfectionist": "4.8.0",
+    "eslint-plugin-perfectionist": "4.9.0",
     "eslint-plugin-prettier": "5.2.3",
     "eslint-plugin-react": "7.37.4",
-    // NOTE: Using a pre-release version which supports ESLint flat config. Update to stable (5.2.0+) when available.
-    "eslint-plugin-react-hooks": "5.2.0-canary-de1eaa26-20250124",
-    "eslint-plugin-storybook": "0.11.2",
-    "typescript-eslint": "8.23.0",
-    "@typescript-eslint/parser": "8.23.0",
-    "globals": "15.14.0",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-storybook": "0.11.4",
+    "typescript-eslint": "8.26.0",
+    "@typescript-eslint/parser": "8.26.0",
+    "globals": "16.0.0",
 
     // TypeScript related
     "typescript": "5.7.3",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
 
     // Vite related
-    "vite": "6.1.0",
-    "vite-plugin-dts": "4.5.0",
+    "vite": "6.2.0",
+    "vite-plugin-dts": "4.5.3",
     "vite-plugin-lib-inject-css": "2.2.1",
 
     // Test related
-    "vitest": "3.0.5",
-    "@vitest/browser": "3.0.5",
-    "@vitest/ui": "3.0.5",
+    "vitest": "3.0.8",
+    "@vitest/browser": "3.0.8",
+    "@vitest/ui": "3.0.8",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.2.0",
     "jsdom": "26.0.0",
 
     // Lefthook
-    "lefthook": "1.10.10",
+    "lefthook": "1.11.2",
 
     // Storybook related
-    "storybook": "8.5.3",
-    "@storybook/addon-essentials": "8.5.3",
-    "@storybook/react": "8.5.3",
-    "@storybook/react-vite": "8.5.3",
+    "storybook": "8.6.4",
+    "@storybook/addon-essentials": "8.6.4",
+    "@storybook/react": "8.6.4",
+    "@storybook/react-vite": "8.6.4",
 
     // Semantic Release related
     "semantic-release": "24.2.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1"
+  },
+  // Dependencies to prevent workflow failures due to a npm bug related with optional dependencies.
+  "optionalDependencies": {
+    "@ast-grep/napi-linux-x64-gnu": "0.35.0",
+    "@rollup/rollup-linux-x64-gnu": "4.34.9"
   }
 }
 ```
