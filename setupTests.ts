@@ -11,5 +11,5 @@ declare module 'vitest' {
       TestingLibraryMatchers<T, void> {}
 }
 
-// NOTE: Extends the `expect` function in Vitest with the matchers from Jest-DOM. Allowing the use of matchers like `.toBeInTheDocument()`.
+// NOTE: Extends the `expect` function from Vitest to add the matchers of Jest-DOM. Allowing the use of matchers like `.toBeInTheDocument()`.
 expect.extend(matchers);
