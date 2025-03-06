@@ -1595,6 +1595,10 @@ This is handled automatically by `semantic-release`, which:
 >
 > If multiple rules apply, the highest release type is selected.
 
+> [!IMPORTANT]
+>
+> In order for `semantic-release` to push changes back to the repository, the target branch must not be protected against direct pushes.
+
 Once the pipeline completes, the latest release will be available in the NPM repository.
 
 <div align="right"><kbd><a href="#-table-of-contents">↑ Back to top ↑</a></kbd></div>
