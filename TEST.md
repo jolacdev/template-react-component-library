@@ -1287,18 +1287,7 @@ export default {
   plugins: [
     // Determines the type of version (major, minor, patch) following rules which use the "Conventional Commits" standard.
     // NOTE: If a commit match multiple rules, the highest release type is selected.
-    [
-      '@semantic-release/commit-analyzer',
-      {
-        // Preset default value is 'angular'.
-        preset: 'angular',
-        // Custom rules to determine the release type.
-        releaseRules: [
-          { release: 'patch', scope: 'README', type: 'docs' },
-          { release: 'patch', type: 'refactor' },
-        ],
-      },
-    ],
+    '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     ['@semantic-release/changelog', { changelogFile: 'CHANGELOG.md' }],
     '@semantic-release/npm',

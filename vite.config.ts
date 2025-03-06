@@ -38,7 +38,7 @@ export default defineConfig({
     // NOTE: `lib` object is a configuration specific for projects that export a library package
     lib: {
       formats: ['es'], // Output format (ES Modules).
-      name: 'template-react-component-library', // NOTE: Name for the UMD/IIFE format. // NOTE: It is not used (since the output format is ES Modules) but added for reference.
+      name: 'react-component-library', // NOTE: Name for the UMD/IIFE format. // NOTE: It is not used (since the output format is ES Modules) but added for reference.
       // NOTE: `entry` is required since a library cannot use HTML file as entry point. * It is used as an object because it has multiple entries.
       entry: {
         index: './src/index.ts', // Full library entry point.
