@@ -73,6 +73,7 @@
     "vitest": "3.0.8"
   },
   "optionalDependencies": {
+    "@ast-grep/napi-linux-x64-gnu": "0.35.0",
     "@rollup/rollup-linux-x64-gnu": "4.34.9"
   }
 }
