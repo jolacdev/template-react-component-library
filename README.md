@@ -684,6 +684,11 @@ The dependencies used are separated into:
     "semantic-release": "24.2.3",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1"
+  },
+  // Dependencies to prevent workflow failures due to a npm bug related with optional dependencies.
+  "optionalDependencies": {
+    "@ast-grep/napi-linux-x64-gnu": "0.35.0",
+    "@rollup/rollup-linux-x64-gnu": "4.34.9"
   }
 }
 ```
