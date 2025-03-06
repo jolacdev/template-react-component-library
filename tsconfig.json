@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2020", // Compiles code for ES2020.
-    "useDefineForClassFields": true, // Enables the use of 'define' for class fields.
+    "useDefineForClassFields": true, // Ensures class fields are initialized with Object.defineProperty and set to undefined by default, aligning with the ES2022 standard to prevent potential breakage in TypeScript.
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext", // Allows import/export on generated code.
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "bundler", // For use with bundlers like Vite. Supports `package.json` imports and exports.
     "allowImportingTsExtensions": true, // Allows importing `.ts` files as modules
     "resolveJsonModule": true, // Allows importing JSON files as modules
-    "isolatedModules": true, // TypeScript performs individual file checks.
+    "isolatedModules": true, // Warns when certain TS code cannot be correctly interpreted by single-file transpiler.
     "noEmit": true, // Uses TypeScript only for type-checking, making the bundler (Vite) the one that manages the code output.
     "jsx": "react-jsx", // React JSX support.
 
